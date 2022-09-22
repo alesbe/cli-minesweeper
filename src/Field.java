@@ -78,8 +78,6 @@ public class Field {
         } else {
             this.allMinesMarked = false;
         }
-        
-        //System.out.println("Aux: " + auxCounter + " mines: " + nMines + " bool: " + this.allMinesMarked);
     }
 
     private void generateField() {
@@ -112,44 +110,46 @@ public class Field {
 
         for(int row = 0; row < field.length; row++) {
             for(int col = 0; col < field[row].length; col++) {
-                // Top left
-                if(row != 0 && col != 0 && field[row - 1][col - 1].getValue() == "X" && field[row][col].getValue() == ".") {
-                    auxCounter++;
-                }
+                if(field[row][col].getValue() == ".") {
+                    // Top left
+                    if(row != 0 && col != 0 && field[row - 1][col - 1].getValue() == "X") {
+                        auxCounter++;
+                    }
 
-                // Top middle
-                if(row != 0 && field[row - 1][col].getValue() == "X" && field[row][col].getValue() == ".") {
-                    auxCounter++;
-                }
+                    // Top middle
+                    if(row != 0 && field[row - 1][col].getValue() == "X") {
+                        auxCounter++;
+                    }
 
-                // Top right
-                if(row != 0 && col != field[row].length-1 && field[row - 1][col + 1].getValue() == "X" && field[row][col].getValue() == ".") {
-                    auxCounter++;
-                }
+                    // Top right
+                    if(row != 0 && col != field[row].length-1 && field[row - 1][col + 1].getValue() == "X") {
+                        auxCounter++;
+                    }
 
-                // Center left
-                if(col != 0 && field[row][col - 1].getValue() == "X" && field[row][col].getValue() == ".") {
-                    auxCounter++;
-                }
+                    // Center left
+                    if(col != 0 && field[row][col - 1].getValue() == "X") {
+                        auxCounter++;
+                    }
 
-                // Center right
-                if(col != field[row].length-1 && field[row][col + 1].getValue() == "X" && field[row][col].getValue() == ".") {
-                    auxCounter++;
-                }
+                    // Center right
+                    if(col != field[row].length-1 && field[row][col + 1].getValue() == "X") {
+                        auxCounter++;
+                    }
 
-                // Bottom left
-                if(row != field.length-1 && col != 0 && field[row + 1][col - 1].getValue() == "X" && field[row][col].getValue() == ".") {
-                    auxCounter++;
-                }
+                    // Bottom left
+                    if(row != field.length-1 && col != 0 && field[row + 1][col - 1].getValue() == "X") {
+                        auxCounter++;
+                    }
 
-                // Bottom middle
-                if(row != field.length-1 && field[row + 1][col].getValue() == "X" && field[row][col].getValue() == ".") {
-                    auxCounter++;
-                }
+                    // Bottom middle
+                    if(row != field.length-1 && field[row + 1][col].getValue() == "X") {
+                        auxCounter++;
+                    }
 
-                // Bottom right
-                if(row != field.length-1 && col != field.length-1 && field[row + 1][col + 1].getValue() == "X" && field[row][col].getValue() == ".") {
-                    auxCounter++;
+                    // Bottom right
+                    if(row != field.length-1 && col != field.length-1 && field[row + 1][col + 1].getValue() == "X") {
+                        auxCounter++;
+                    }
                 }
 
                 // Set number of mines

@@ -1,18 +1,10 @@
 public class Cell {
     Boolean isVisible = false;
     String placeholder = ".";
-    public String value = ".";
+    String value = ".";
 
     public void enableVisibility(){
         isVisible = true;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
     }
 
     public String getStatus() {
@@ -22,6 +14,15 @@ public class Cell {
             return placeholder;
         }
     }
+    
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
 
     public String getPlaceholder() {
         return this.placeholder;

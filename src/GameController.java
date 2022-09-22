@@ -5,12 +5,11 @@ public class GameController {
     int size, nMines;
 
     public GameController() {
-        if(initGame()) {
-            gameLoop();
-        }
+        initGame();
+        gameLoop();
     }
 
-    private boolean initGame() {
+    private void initGame() {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Field size > ");
@@ -19,8 +18,6 @@ public class GameController {
         this.nMines = sc.nextInt();
 
         this.field = new Field(size, nMines);
-
-        return true;
     }
 
     private void gameLoop() {
