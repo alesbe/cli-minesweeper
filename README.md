@@ -1,18 +1,18 @@
-## Getting Started
+# CLI Minesweeper 💣❌
+Initialized field             |  Unlocked cells
+:-------------------------:|:-------------------------:
+![](https://i.imgur.com/PYCaoBp.png)  |  ![](https://i.imgur.com/FoSuTVc.png)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+The classic Minesweeper game playable in a terminal!
 
-## Folder Structure
+## Usage
+- `[row] [col] [aciton]`: Example `5 8 free`.
 
-The workspace contains two folders by default, where:
+## Actions
+- `free`: Free the selected cell and neighbours. If the selected cell contains a bomb, you will lose.
+- `mark`: Marks a cell containing a bomb, mark all uncovered cells with bombs to win the game.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## What I've learned with this project
+- Multidimensional array operations
+- Recursive functions
+- OOP

@@ -23,7 +23,6 @@ public class Cell {
         this.value = value;
     }
 
-
     public String getPlaceholder() {
         return this.placeholder;
     }
