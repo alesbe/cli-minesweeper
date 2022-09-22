@@ -5,8 +5,9 @@ public class Field {
     Cell[][] field;
     int size;
     int nMines;
-    public boolean bombRevealed = false;
-
+    public boolean minesRevealed = false;
+    public boolean allMinesMarked = false;
+    
     public Field (int size, int nMines) {
         this.size = size;
         this.nMines = nMines;
@@ -16,6 +17,7 @@ public class Field {
     }
 
     public void printField() {
+        System.out.println();
         System.out.print("  | ");
         for(int i = 0; i < size; i++) {
             System.out.print(i + 1 + " ");
@@ -48,7 +50,7 @@ public class Field {
                 break;
 
             case "mark":
-                markCell(row, col);
+                markCell(row-1, col-1);
                 break;
 
             case "exit":
@@ -59,6 +61,25 @@ public class Field {
                 System.out.println("Select a valid option!");
                 break;
         }
+    }
+
+    public void checkMarkedMines() {
+        int auxCounter = 0;
+        for(int row = 0; row < field.length; row++) {
+            for(int col = 0; col < field[row].length; col++) {
+                if(field[row][col].getValue() == "X" && field[row][col].getPlaceholder() == "?") {
+                    auxCounter++;
+                }
+            }
+        }
+
+        if(auxCounter == nMines) {
+            this.allMinesMarked = true;
+        } else {
+            this.allMinesMarked = false;
+        }
+        
+        //System.out.println("Aux: " + auxCounter + " mines: " + nMines + " bool: " + this.allMinesMarked);
     }
 
     private void generateField() {
@@ -149,7 +170,7 @@ public class Field {
                 field[row][col].enableVisibility();
                 break;
             case "X":
-                this.bombRevealed = true;
+                this.minesRevealed = true;
                 field[row][col].setValue("X");
                 field[row][col].enableVisibility();
                 return;

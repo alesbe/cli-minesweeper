@@ -24,12 +24,22 @@ public class GameController {
     }
 
     private void gameLoop() {
-        while(!field.bombRevealed) {
+        while(!field.minesRevealed) {
             field.printField();
             field.makeGuess();
+            field.checkMarkedMines();
+            
+            if(field.allMinesMarked) {
+                break;
+            }
         }
 
-        field.printField();
-        System.out.println("You lost!");
+        if(field.minesRevealed) {
+            field.printField();
+            System.out.println("You lost!");
+        } else {
+            field.printField();
+            System.out.println("You found all the mines!");
+        }
     }
 }
